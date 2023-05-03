@@ -1,5 +1,5 @@
 import "../../App.css";
-import CategoryList from "../CategoryList/categoryList";
+import CategoryList from "../CategoryList/index";
 import {useEffect, useState} from "react";
 import axios from "../../plugins/axios"
 import Loading from "../Loading/loading";
@@ -24,7 +24,6 @@ function HomePage() {
             `FastFood/list/${categoryId ? "?categoryId=" + categoryId : ""}`
         );
         setLoading(false);
-        console.log(response.data)
         setFastFoodItems(response.data);
     };
 
@@ -32,17 +31,20 @@ function HomePage() {
         fetchFoods();
     }, [])
 
+    const filterItems = (categoryId) => {
+        fetchFoods(categoryId);
+    }
     const renderContent = () => {
         if (loading) {
             return <Loading theme="dark" />
         }
 
-        return <FastFoodList fastFoodItmes={fastFoodItems} />
+        return <FastFoodList fastFoodItems={fastFoodItems} />
     }
 
     return (
         <div className="wrapper bg-faded-dark">
-            <CategoryList></CategoryList>
+            <CategoryList filterItems={filterItems}></CategoryList>
             <div className="container mt-4">
 
                 {renderContent()}

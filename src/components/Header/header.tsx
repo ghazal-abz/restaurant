@@ -1,5 +1,6 @@
 import './header.css';
 import { Link } from "react-router-dom";
+import { RiShoppingCartLine } from "react-icons/ri";
 
 const Header = () => {
 
@@ -41,7 +42,7 @@ const Header = () => {
                 <a className="navbar-tool ms-3 me-3">
                   <div className="navbar-tool-icon-box bg-secondary">
                     {/*<span className="navbar-tool-label">{cart.length}</span>*/}
-                    {/*<RiShoppingCartLine className="navbar-tool-icon" />*/}
+                    <RiShoppingCartLine className="navbar-tool-icon" />
                   </div>
                 </a>
 

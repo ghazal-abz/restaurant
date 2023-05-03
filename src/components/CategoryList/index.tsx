@@ -2,10 +2,15 @@ import {useEffect, useState} from "react";
 import axios from "../../plugins/axios";
 import Loading from "../Loading/loading";
 
-const CategoryList = () => {
+interface CategoryItems {
+    id: number;
+    name: string;
+}
+
+const CategoryList = ({filterItems}) => {
     const [loading, setLoading] = useState(true);
 
-    const [categories, setCategories] = useState([]);
+    const [categories, setCategories] = useState<Array<CategoryItems>>();
 
     useEffect(() => {
         const fetchCategories = async () => {
@@ -21,13 +26,13 @@ const CategoryList = () => {
             return <Loading theme="primary" />
         }
         return <ul className="nav">
-            <li className="nav-item">
+            <li className="nav-item" onClick={()=> filterItems()}>
                 <a className="nav-link" href="#">
                     همه فست فود ها
                 </a>
             </li>
-            {categories.map((category) => (
-                <li className="nav-item" key={category.id}>
+            {categories?.map((category) => (
+                <li className="nav-item" key={category.id} onClick={() => filterItems(category.id)}>
                     <a className="nav-link" href="#">
                         {category.name}
                     </a>
