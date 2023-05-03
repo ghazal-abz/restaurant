@@ -1,13 +1,12 @@
-import FastFoodItem from "../FastFoodItem";
-// import { FastFoodItems } from "./type";
+import FastFoodItem from "../FastFoodItem/index";
+import { FastFoodItems } from "./type";
 
-const FastFoodList = ({ fastFoodItems }) => {
+const FastFoodList = ({ fastFoodItems }: FastFoodItems) => {
     let delay = 0.1;
 
     return (
         <div className="row">
-            heyy
-            {fastFoodItems.map(({ id, ...fastFoodItem }) => {
+            {fastFoodItems?.map(({ id, ...fastFoodItem }) => {
                 delay += 0.03;
                 return (
                     <div className="col-md-4 col-sm-6 mb-grid-gutter" key={id}>

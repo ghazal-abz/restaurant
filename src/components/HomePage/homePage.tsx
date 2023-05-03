@@ -16,7 +16,7 @@ interface FastFoodItems {
 function HomePage() {
 
     const [loading, setLoading] = useState(true);
-    const [fastFoodItems, setFastFoodItems] = useState<FastFoodItems | null>(null);
+    const [fastFoodItems, setFastFoodItems] = useState<Array<FastFoodItems>>();
 
     const fetchFoods = async (categoryId: null | number = null) => {
         setLoading(true);

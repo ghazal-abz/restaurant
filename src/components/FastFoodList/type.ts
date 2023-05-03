@@ -7,5 +7,5 @@ export interface FastFoodItem {
 }
 
 export interface FastFoodItems {
-    fastFoodItems: Array<FastFoodItem>;
+    fastFoodItems?: Array<FastFoodItem>;
 }
