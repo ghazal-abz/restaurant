@@ -14,7 +14,7 @@ const Header = () => {
                 </h1>
 
               <div className="container d-flex justify-content-end">
-                <ul className="navbar-nav">
+                <ul className="navbar-nav d-flex flex-row-reverse">
                   <li className="navbar-item">
                     <Link to={"/"} className="nav-link">
                       <div className={`text-start me-4`}>home</div>
