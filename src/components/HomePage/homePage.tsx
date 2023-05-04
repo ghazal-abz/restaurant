@@ -7,20 +7,11 @@ import SearchBar from "../SearchBar/index";
 import notFound from "../../assets/images/not-found.png";
 import useAxios from "../../useAxios";
 
-interface FastFoodItems {
-    id: number;
-    imageUrl: string;
-    ingredients: string;
-    name: string;
-    price: number;
-}
-
 function HomePage() {
     const [url, setUrl] = useState('/FastFood/list/');
     const [fastFoodItems, , loading] = useAxios({
         url: url
     })
-    // const [fastFoodItems, setFastFoodItems] = useState<Array<FastFoodItems>>();
 
     const searchItems = async (term: string) => {
         setUrl(`/FastFood/search/${term ? "?term=" + term : ""}`);

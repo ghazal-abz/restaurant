@@ -1,17 +1,10 @@
 import Loading from "../Loading/loading";
 import useAxios from "../.././useAxios"
 
-interface CategoryItems {
-    id: number;
-    name: string;
-}
-
 const CategoryList = ({filterItems, children}) => {
     const [categories, , loading] = useAxios({
         url: '/FoodCategory/categories'
     })
-
-    // const [categories, setCategories] = useState<Array<CategoryItems>>();
 
     const renderContent = () => {
         if (loading) {
