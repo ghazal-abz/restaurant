@@ -1,12 +1,12 @@
 import "./fastFoodItem.css";
 import {items} from "./type";
 
-const FastFoodItem = ({name, price, ingredients, imageUrl}: items) => {
+const FastFoodItem = ({name, price, ingredients, imageUrl, delay}: items) => {
     return (
         <div
             className="card product-card h-100 border-0 shadow-sm pb-1 fade-in-horiz"
         >
-             <span className="badge badge-end badge-shadow bg-success fs-md fw-medium">
+             <span className="badge badge-end badge-shadow bg-success fs-md fw-medium" style={{animationDelay: delay + "s"}}>
                 قیمت: {price.toLocaleString()} تومان
              </span>
             <div className="card__placeholder">

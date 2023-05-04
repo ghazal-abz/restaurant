@@ -4,6 +4,7 @@ export interface FastFoodItemProps {
     ingredients: string;
     imageUrl: string;
     id: number;
+    delay: number;
 }
 export interface items {
     item?: Array<FastFoodItemProps>;
