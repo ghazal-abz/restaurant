@@ -1,6 +1,7 @@
 import {useEffect, useState} from "react";
 import axios from "../../plugins/axios";
 import Loading from "../Loading/loading";
+import useAxios from "../../"
 
 interface CategoryItems {
     id: number;
@@ -8,6 +9,10 @@ interface CategoryItems {
 }
 
 const CategoryList = ({filterItems, children}) => {
+    useAxios({
+
+    })
+
     const [loading, setLoading] = useState(true);
 
     const [categories, setCategories] = useState<Array<CategoryItems>>();
