@@ -1,8 +1,10 @@
 import {BsSearch} from 'react-icons/bs';
 import {useState} from "react";
+import { SearchBarProp } from "./type";
 
-const SearchBar = ({searchItems}) => {
+const SearchBar = ({ searchItems }: SearchBarProp) => {
     const [value, setValue] = useState('');
+
     const onSubmit = (e) => {
         e.preventDefault();
         searchItems(value);
