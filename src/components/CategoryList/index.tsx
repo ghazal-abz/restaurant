@@ -1,7 +1,5 @@
-import {useEffect, useState} from "react";
-import axios from "../../plugins/axios";
 import Loading from "../Loading/loading";
-import useAxios from "../../"
+import useAxios from "../.././useAxios"
 
 interface CategoryItems {
     id: number;
@@ -9,22 +7,11 @@ interface CategoryItems {
 }
 
 const CategoryList = ({filterItems, children}) => {
-    useAxios({
-
+    const [categories, , loading] = useAxios({
+        url: '/FoodCategory/categories'
     })
 
-    const [loading, setLoading] = useState(true);
-
-    const [categories, setCategories] = useState<Array<CategoryItems>>();
-
-    useEffect(() => {
-        const fetchCategories = async () => {
-            const response = await axios.get('/FoodCategory/categories')
-            setCategories(response.data);
-            setLoading(false);
-        }
-        fetchCategories();
-    }, []);
+    // const [categories, setCategories] = useState<Array<CategoryItems>>();
 
     const renderContent = () => {
         if (loading) {
