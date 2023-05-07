@@ -6,12 +6,16 @@ import FastFoodList from "../FastFoodList/index";
 import SearchBar from "../SearchBar/index";
 import notFound from "../../assets/images/not-found.png";
 import useAxios from "../../useAxios";
+import {useThemeContext} from "../../context/context";
 
 function HomePage() {
     const [url, setUrl] = useState('/FastFood/list/');
     const [fastFoodItems, , loading] = useAxios({
         url: url
     })
+
+    const theme = useThemeContext();
+    const darkMode = theme.darkMode;
 
     const searchItems = async (term: string) => {
         setUrl(`/FastFood/search/${term ? "?term=" + term : ""}`);
@@ -41,7 +45,7 @@ function HomePage() {
     }
 
     return (
-        <div className="wrapper bg-faded-dark">
+        <div className={`wrapper ${darkMode ? "bg-faded-dark text-light" : "bg-dark text-dark"}`}>
             <CategoryList filterItems={filterItems}>
                 <SearchBar searchItems={searchItems} />
             </CategoryList>
