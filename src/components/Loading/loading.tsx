@@ -1,4 +1,4 @@
-const loading = ({theme}) => {
+const loading = ({theme}: string) => {
     return (
         <div className="d-flex justify-content-center m-auto">
             <div className={`loading spinner-border text-${theme || "success"}`}>

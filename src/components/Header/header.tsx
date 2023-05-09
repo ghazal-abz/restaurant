@@ -33,7 +33,6 @@ const Header = () => {
 
                 <a className="navbar-tool ms-3 me-3">
                   <div className="navbar-tool-icon-box bg-secondary">
-                    {/*<span className="navbar-tool-label">{cart.length}</span>*/}
                     <RiShoppingCartLine className="navbar-tool-icon" />
                   </div>
                 </a>

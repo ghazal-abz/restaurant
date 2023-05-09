@@ -1,16 +1,19 @@
-import { useState } from "react";
-import { useContext } from "react";
-import { createContext } from "react";
+import {useState, useContext, createContext} from "react";
+import {ThemeProviderProp, ContextProp} from "./type";
 
-const Context = createContext();
 
-export const ThemeProvider = ({children}) => {
-  const [darkMode, setDarkMode] = useState(false);
-  return <Context.Provider value={{darkMode, setDarkMode}}>
-    {children}
-  </Context.Provider>
+const Context = createContext<ThemeProviderProp>({
+    darkMode: false,
+    setDarkMode: () => null,
+});
+
+export const ThemeProvider = ({children}: ContextProp) => {
+    const [darkMode, setDarkMode] = useState(false);
+    return <Context.Provider value={{darkMode, setDarkMode}}>
+        {children}
+    </Context.Provider>
 }
 
 export const useThemeContext = () => {
-  return useContext(Context);
+    return useContext(Context);
 }
