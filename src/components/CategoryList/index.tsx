@@ -1,7 +1,8 @@
 import Loading from "../Loading/loading";
-import useAxios from "../.././useAxios"
+import useAxios from "../.././useAxios";
+import {CategoryListProps} from "./type";
 
-const CategoryList = ({filterItems, children}) => {
+const CategoryList = ({filterItems, children}: CategoryListProps) => {
     const [categories, , loading] = useAxios({
         url: '/FoodCategory/categories'
     })
